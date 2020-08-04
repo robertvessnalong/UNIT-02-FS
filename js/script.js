@@ -155,8 +155,11 @@ function searchBar() {
 
   //Search DIV Event Listener, compare h3 to input value
   searchDiv.addEventListener("keyup", (e) => {
+    //Sets Search Value to LowerCase
     const searchValue = e.target.value.toLowerCase();
+    //Gets All Student Names
     const studentDetails = document.querySelectorAll(".student-details h3");
+    //Loop through Student Names
     studentDetails.forEach((student) => {
       const h3 = student.textContent;
       if (h3.includes(searchValue)) {
@@ -165,18 +168,23 @@ function searchBar() {
         student.parentNode.parentNode.style.display = "none";
       }
     });
-
+    //Call to Display Message when no students found
     studentArray.every(displayMessage);
+    //Set UL to empty string so new list can be generated
     ul.innerHTML = "";
     filterPagination();
   });
 
   //Button Event Listener
   btn.addEventListener("click", (e) => {
+    //Gets Search Value and Sets to Lower Case
     const inputValue = input.value.toLowerCase();
+    //Gets All Student Names
     const studentDetails = document.querySelectorAll(".student-details h3");
+    //Loop Through Student Names
     studentDetails.forEach((student) => {
       const h3 = student.textContent;
+      //if input value is string, do nothing
       if (inputValue === "") {
         return;
       } else if (h3.includes(inputValue)) {
